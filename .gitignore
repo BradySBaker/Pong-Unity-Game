@@ -1,0 +1,16 @@
+# Unity generated files
+/Library/
+/Temp/
+/Builds/
+/Logs/
+
+# Visual Studio files
+*.csproj
+*.sln
+*.suo
+*.userprefs
+*.pidb
+*.sln.DotSettings
+
+# Windows system files
+Thumbs.db
