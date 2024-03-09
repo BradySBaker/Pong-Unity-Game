@@ -16,8 +16,12 @@ public class BallMovement : MonoBehaviour
             Debug.LogError("GameManager instance not found in the scene.");
             return;
         }
-
-        rb.velocity = new Vector2(speed, 0);
+        int randomInt = UnityEngine.Random.Range(0, 2);
+        int direction = 1;
+        if (randomInt == 0) {
+            direction = -1;
+        }
+        rb.velocity = new Vector2(speed * direction, 0);
     }
 
     public void BounceFromRacket(Collision2D c) {
@@ -31,7 +35,7 @@ public class BallMovement : MonoBehaviour
 
         Debug.Log(y);
 
-        rb.velocity = new Vector2(speed, y * speed);
+        rb.velocity = new Vector2(rb.velocity.x, y * speed);
     }
 
     private void OnCollisionEnter2D (Collision2D collision) {
