@@ -8,7 +8,7 @@ public class BallMovement : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public int speed = 10;
+    public int speed = 15;
     public Rigidbody2D rb;
     void Start()
     {

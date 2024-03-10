@@ -21,8 +21,12 @@ public class AIController : MonoBehaviour
 
     void Update()
     {
+        if (Random.Range(0, 4) != 0) { // Reduce accuracy
+            return;
+        }
+
         float yDistance = rb.position.y - ball.transform.position.y;
-        if (Mathf.Abs(yDistance) < .3f) {
+        if (Mathf.Abs(yDistance) < .5f) {
             return;
         }
         if (ball.transform.position.x > rb.transform.position.x) {
@@ -33,7 +37,8 @@ public class AIController : MonoBehaviour
         Vector2 movement = new Vector2(0f, verticalInput * -1);
 
 
-        if (rb.velocity.y < 10) {
+
+        if (Mathf.Abs(rb.velocity.y + (movement.y * speed)) < 15) {
             rb.velocity += movement * speed;
         }
 
