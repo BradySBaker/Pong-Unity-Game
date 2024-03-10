@@ -9,12 +9,14 @@ public class AIController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public GameObject ball;
-    public float speed = 1f;
+    public float speed = 1;
     void Start()
     {
         if (ball == null || rb == null) {
             Debug.LogError("Please add ball game object and rigid body");
         }
+        speed = PlayerPrefs.GetFloat("enemySpeed"); 
+        Debug.Log(speed);
     }
 
     void Update()

@@ -12,16 +12,17 @@ public class BallMovement : MonoBehaviour
     public Rigidbody2D rb;
     void Start()
     {
-        if (gameManager == null) {
-            Debug.LogError("GameManager instance not found in the scene.");
-            return;
-        }
         int randomInt = UnityEngine.Random.Range(0, 2);
         int direction = 1;
         if (randomInt == 0) {
             direction = -1;
         }
         rb.velocity = new Vector2(speed * direction, 0);
+        if (gameManager == null) {
+            Debug.Log("GameManager instance not found in the scene ball will bounce freely.");
+            rb.velocity = new Vector2(rb.velocity.x, 5f);
+            return;
+        }
     }
 
     public void BounceFromRacket(Collision2D c) {
